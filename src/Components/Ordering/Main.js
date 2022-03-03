@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import MenuCard from "./MenuCard";
 import Product from "../Data/product.json";
-import { useStateValue } from "../../stateProvider";
 import Scrollbars from "react-custom-scrollbars";
 import Orders from "./Orders";
 
@@ -11,14 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Carausol from "./Carausol";
 
 function Main() {
-  const [{ basket }, dispatch] = useStateValue();
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 3,
-  };
+
   return (
     <MainContainer>
       <RightSide>
