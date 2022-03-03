@@ -34,16 +34,17 @@ function Orders() {
           Subtotal <span>Rs 1000</span>
         </p>
         <p>
-          Tax 10% (VAT included) <span>Rs. 100</span>
+          Discount 10% <span>Rs. 100</span>
         </p>
         <p>
           Service charge 10<span>Rs. 100</span>
         </p>
-        <p className="discount">
-          Discount 10% <span>Rs. 100</span>
+        <p>
+          Tax 10% (VAT included) <span>Rs. 100</span>
         </p>
-        <p style={{color:green[500]}}>
-          Total <span>Rs. 1100</span>
+
+        <p style={{ color: green[500] }} className="total">
+          Grand Total <span>Rs. 1100</span>
         </p>
         <Sub_button>
           <button>Place Order</button>
@@ -52,9 +53,7 @@ function Orders() {
     </Order_data>
   );
 }
-const Order_data = styled.div`
- 
-`;
+const Order_data = styled.div``;
 const Order_type = styled.div`
   display: flex;
   width: 100%;
@@ -75,13 +74,14 @@ const Subtotal = styled.div`
   p {
     display: flex;
     justify-content: space-between;
-    line-height: 2;
+    
     span {
       font-weight: bold;
+      padding: 8px;
     }
   }
-  .discount{
-    border-bottom: 2px dashed black;
+  .total {
+    border-top: 2px dashed black;
   }
 `;
 const Sub_button = styled.div`
@@ -94,6 +94,5 @@ const Sub_button = styled.div`
     background-color: #2c586e;
     cursor: pointer;
   }
- 
 `;
 export default Orders;

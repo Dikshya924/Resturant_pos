@@ -50,17 +50,7 @@ const Order = styled.div`
   padding: 15px;
   display: flex;
 `;
-// const Order_Item = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `;
-// const Item__info = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   /* margin-top: 10px;
-//   margin-bottom: 10px; */
-// `;
+
 const Item__detail = styled.div`
   width: 80%;
   height: auto;
@@ -79,7 +69,7 @@ const Item__remove = styled.div`
   cursor: pointer;
 `;
 const Pricing = styled.div`
-  width: 20%;
+  width: 30%;
   text-align: center;
   .quantity {
     display: flex;

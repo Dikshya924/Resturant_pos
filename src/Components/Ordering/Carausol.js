@@ -78,6 +78,7 @@ function Carausol() {
 const Category = styled.div`
   width: 90%;
   margin: auto;
+  
   .slick-arrow {
     background-color: #2c586e;
     width: 30px;

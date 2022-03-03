@@ -46,8 +46,8 @@ const Items = styled.div`
   align-items: center;
   justify-content: center;
   img {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     object-fit: cover;
     margin-top: -40px;
     border-radius: 50%;

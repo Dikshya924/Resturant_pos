@@ -71,7 +71,13 @@ const Menu = styled.div`
   row-gap: 10px;
   margin-top: 30px;
   width: 100%;
+
   @media (max-width: 768px) {
+    grid-template-columns: repeat(4, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(4, 0fr);
     column-gap: 20px;
     justify-content: center;
