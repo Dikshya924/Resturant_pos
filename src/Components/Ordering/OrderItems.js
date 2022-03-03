@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import IndeterminateCheckBoxSharpIcon from "@material-ui/icons/IndeterminateCheckBoxSharp";
+import AddBoxRoundedIcon from "@material-ui/icons/AddBoxRounded";
 import { useStateValue } from "../../stateProvider";
+import { green } from "@material-ui/core/colors";
 function OrderItems({ id, img, title, price }) {
   const [{ basket }, dispatch] = useStateValue();
+  const [count, setCount] = useState(1);
+  const increment = () => {
+    setCount(count + 1);
+  };
+  const decrement = () => {
+    setCount(count - 1);
+  };
   const removeItem = () => {
     dispatch({
       type: "REMOVE_FROM_BASKET",
@@ -12,24 +21,25 @@ function OrderItems({ id, img, title, price }) {
   };
   return (
     <Order>
-      <Item__info>
-        <Item__image>
-          <img src={img} />
-          <Item__detail>
-            <p>{title}</p>
-            <p>Rs. {price}</p>
-          </Item__detail>
-        </Item__image>
-        <Pricing>
-          <Item__quantity>
-            <input type="text" placeholder="1" />
-            <p>Rs 1000</p>
-          </Item__quantity>
-          <Item__remove>
-            <DeleteOutlineOutlinedIcon onClick={removeItem} />
-          </Item__remove>
-        </Pricing>
-      </Item__info>
+      <Item__detail>
+        <img src={img} />
+        <Info>
+          <p>{title}</p>
+          <p>Rs. {price}</p>
+        </Info>
+      </Item__detail>
+      <Pricing>
+        <p className="quantity">
+          <AddBoxRoundedIcon className="icon" onClick={increment} />
+          {count}
+          <IndeterminateCheckBoxSharpIcon
+            className="icon"
+            onClick={decrement}
+          />
+        </p>
+        <p style={{ color: green[300]}}>Rs{price * count}</p>
+        <Item__remove onClick={removeItem}>Remove</Item__remove>
+      </Pricing>
     </Order>
   );
 }
@@ -38,20 +48,21 @@ const Order = styled.div`
   background-color: rgba(0, 0, 0, 0.03);
   border-radius: 20px;
   padding: 15px;
-`;
-const Order_Item = styled.div`
   display: flex;
-  flex-direction: column;
 `;
-const Item__info = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
-`;
-const Item__image = styled.div`
-  width: 100px;
+// const Order_Item = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
+// const Item__info = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   /* margin-top: 10px;
+//   margin-bottom: 10px; */
+// `;
+const Item__detail = styled.div`
+  width: 80%;
   height: auto;
   display: flex;
   img {
@@ -62,20 +73,23 @@ const Item__image = styled.div`
     object-fit: cover;
   }
 `;
-
-const Item__quantity = styled.div`
-  display: flex;
-  align-items: center;
-  input {
-    width: 30px;
-    text-align: center;
-  }
-`;
+const Info = styled.div``;
 const Item__remove = styled.div`
   color: rgb(188, 5, 69);
   cursor: pointer;
 `;
-const Item__detail = styled.div``;
-const Pricing = styled.div``;
+const Pricing = styled.div`
+  width: 20%;
+  text-align: center;
+  .quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .icon {
+    border-radius: 50%;
+    color: #2c586e;
+  }
+`;
 
 export default OrderItems;

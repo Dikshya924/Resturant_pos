@@ -1,12 +1,12 @@
-
 import "./App.css";
 import Navbar from "./Components/Navbar";
+import Carausol from "./Components/Ordering/Carausol";
 import Main from "./Components/Ordering/Main";
-import OrderItems from "./Components/Ordering/OrderItems";
+
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <Main />
     </div>
   );

@@ -4,8 +4,6 @@ import SearchBar from "material-ui-search-bar";
 import ReceiptOutlinedIcon from "@material-ui/icons/ReceiptOutlined";
 import KitchenOutlinedIcon from "@material-ui/icons/KitchenOutlined";
 function Navbar() {
-  const date=new Date();
-
   return (
     <NavBar>
       <Logo>
@@ -13,43 +11,53 @@ function Navbar() {
           Res<span>POS</span>
         </h2>
       </Logo>
-      <NavList>
+      <Search>
         <SearchBar className="search" placeholder="search food, drinks etc" />
-      </NavList>
+      </Search>
+      <Date>
+        <h4>Thursday, 2022</h4>
+      </Date>
     </NavBar>
   );
 }
 const NavBar = styled.div`
-  padding: 20px;
+  width: 95%;
+  padding: 10px;
   display: flex;
+  height: 10vh;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 `;
-const NavList = styled.ul`
-  list-style: none;
+const Search = styled.div`
   color: black;
   display: flex;
+  width: 80%;
   .search {
     background-color: transparent;
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 10px;
     box-shadow: none;
+    width: 100%;
+  }
+  @media (max-width:768px){
+    margin-right: 20px;
   }
 `;
 const Logo = styled.div`
+margin-right: 100px;
+
   span {
     color: #2c586e;
   }
-`;
-const NavItem = styled.li`
-  margin-left: 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .icon {
-    color: #2c586e;
+  @media (max-width:768px){
+    margin-right: 20px;
   }
+`;
+
+const Date = styled.div`
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
 `;
 export default Navbar;

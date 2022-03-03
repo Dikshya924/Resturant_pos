@@ -35,6 +35,10 @@ const Card__container = styled.div`
   margin-bottom: 20px;
   background-color: white;
   cursor: pointer;
+  @media (max-width: 768px) {
+    width: 130px;
+    height: auto;
+  }
 `;
 const Items = styled.div`
   display: flex;
@@ -49,6 +53,5 @@ const Items = styled.div`
     border-radius: 50%;
   }
 `;
-
 
 export default MenuCard;

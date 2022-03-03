@@ -1,6 +1,6 @@
 export const initialState = {
   basket: [],
-  count: 0,
+  
 };
 function reducer(state, action) {
   console.log(action);
@@ -10,6 +10,7 @@ function reducer(state, action) {
       return {
         ...state,
         basket: [...state.basket, action.item],
+        
       };
 
     case "REMOVE_FROM_BASKET":
