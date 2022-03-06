@@ -11,7 +11,7 @@ function OrderItems({ id, img, title, price }) {
     setCount(count + 1);
   };
   const decrement = () => {
-    setCount(count - 1);
+    setCount(Math.max(count - 1, 1));
   };
   const removeItem = () => {
     dispatch({
@@ -37,7 +37,7 @@ function OrderItems({ id, img, title, price }) {
             onClick={decrement}
           />
         </p>
-        <p style={{ color: green[300]}}>Rs{price * count}</p>
+        <p style={{ color: green[300] }}>Rs{price * count}</p>
         <Item__remove onClick={removeItem}>Remove</Item__remove>
       </Pricing>
     </Order>

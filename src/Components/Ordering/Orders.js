@@ -8,7 +8,7 @@ import OrderItems from "./OrderItems";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
-import { Sidebar } from "primereact/sidebar";
+import { Fade, Grow, Slide } from "@material-ui/core";
 function Orders() {
   const [{ basket }, dispatch] = useStateValue();
   const [showTotal, setShowTotal] = useState(false);
@@ -35,23 +35,31 @@ function Orders() {
           ))}
         </Scrollbars>
       </Items>
-
       <Sub_button>
         {showTotal ? (
-          <Subtotal>
-            <p>
-              Subtotal <span>Rs 1000</span>
-            </p>
-            <p>
-              Discount 10% <span>Rs. 100</span>
-            </p>
-            <p>
-              Service charge 10%<span>Rs. 100</span>
-            </p>
-            <p>
-              Tax 10% (VAT included) <span>Rs. 100</span>
-            </p>
-          </Subtotal>
+          <Slide
+            direction="up"
+            in={showTotal}
+            mountOnEnter
+            unmountOnExit
+            style={{ transformOrigin: "10 10 10" }}
+            {...(showTotal ? { timeout: 1000 } : {})}
+          >
+            <Subtotal>
+              <p>
+                Subtotal <span>Rs 1000</span>
+              </p>
+              <p>
+                Discount 10% <span>Rs. 100</span>
+              </p>
+              <p>
+                Service charge 10%<span>Rs. 100</span>
+              </p>
+              <p>
+                Tax 10% (VAT included) <span>Rs. 100</span>
+              </p>
+            </Subtotal>
+          </Slide>
         ) : null}
 
         <button className="total " onClick={() => setShowTotal(!showTotal)}>
@@ -74,7 +82,7 @@ const Order_type = styled.div`
   display: flex;
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  padding: 10px;
   justify-content: space-between;
   select {
     border: 1px solid #2c586e;
@@ -86,14 +94,16 @@ const Items = styled.div`
   height: 80%;
   max-height: 80%;
   min-height: 45%;
+  padding: 15px 15px 0px;
 `;
 const Subtotal = styled.div`
   width: 100%;
-
   justify-content: space-between;
   line-height: 2;
   align-items: center;
-
+  padding: 15px 15px 0px;
+  opacity: 3;
+  transition: width 1s ease-in, height 1s ease-in;
   p {
     display: flex;
     justify-content: space-between;

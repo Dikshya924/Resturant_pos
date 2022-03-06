@@ -69,8 +69,6 @@ const Menu = styled.div`
 const Leftside = styled.div`
   width: 30vw;
   height: 85vh;
-  padding: 15px;
-  padding-bottom: 0px;
   @media (min-width: 0px) and (max-width: 768px) {
     width: 100%;
     display: none;

@@ -28,7 +28,6 @@ const SidebarDemo = () => {
         position="right"
         onHide={() => setVisibleRight(false)}
       >
-        <h3>Orders</h3>
         <Orders />
       </Sidebar>
       <Button onClick={() => setVisibleRight(true)} className="mr-2">
