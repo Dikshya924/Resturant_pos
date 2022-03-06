@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useStateValue } from "../../stateProvider";
 function MenuCard({ id, img, title, price }) {
@@ -25,7 +25,7 @@ function MenuCard({ id, img, title, price }) {
   );
 }
 const Card__container = styled.div`
-  width: 100px;
+  width: 140px;
   height: auto;
   padding: 20px;
   border: 1px solid rgba(0, 0, 0, 0.09);
@@ -37,6 +37,9 @@ const Card__container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+  }
 
   img {
     width: 90px;

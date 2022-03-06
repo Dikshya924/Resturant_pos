@@ -4,19 +4,19 @@ import MenuCard from "./MenuCard";
 import Product from "../Data/product.json";
 import Scrollbars from "react-custom-scrollbars";
 import Orders from "./Orders";
-
+// import "./Main.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carausol from "./Carausol";
+import SidebarDemo from "./SidebarDemo";
 
 function Main() {
-
   return (
     <MainContainer>
       <RightSide>
         <Carausol />
         <Scrollbars>
-          <Menu>
+          <Menu className="main">
             {Product.map((product) => {
               return (
                 <MenuCard
@@ -39,50 +39,41 @@ function Main() {
 const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  @media (max-width: 768px) {
+  margin: 0;
+  padding: 0;
+  @media (min-width: 0px) and (max-width: 768px) {
     flex-direction: column;
   }
 `;
 const RightSide = styled.div`
-  width: 70%;
+  width: 70vw;
   height: 85vh;
   display: flex;
   flex-direction: column;
   /* background-color: rgb(241, 247, 252); */
   background-color: rgba(0, 0, 0, 0.03);
-  @media (max-width: 768px) {
+  @media (min-width: 0px) and (max-width: 768px) {
     width: 100%;
   }
 `;
 const Menu = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 0fr);
+  display: flex;
+  /* grid-template-columns: repeat(5, 0fr); */
+  flex-wrap: wrap;
+  justify-content: center;
   column-gap: 40px;
   row-gap: 10px;
   margin-top: 30px;
   width: 100%;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(4, 0fr);
-    column-gap: 20px;
-    justify-content: center;
-  }
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(4, 0fr);
-    column-gap: 20px;
-    justify-content: center;
-  }
 `;
 const Leftside = styled.div`
-  width: 30%;
+  width: 30vw;
   height: 85vh;
-
-  @media (max-width: 768px) {
+  padding: 15px;
+  padding-bottom: 0px;
+  @media (min-width: 0px) and (max-width: 768px) {
     width: 100%;
-    margin-top: 20px;
-    height: 100%;
+    display: none;
   }
 `;
 

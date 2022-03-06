@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SearchBar from "material-ui-search-bar";
 import ReceiptOutlinedIcon from "@material-ui/icons/ReceiptOutlined";
 import KitchenOutlinedIcon from "@material-ui/icons/KitchenOutlined";
+import SidebarDemo from "./Ordering/SidebarDemo";
 function Navbar() {
   return (
     <NavBar>
@@ -14,9 +15,12 @@ function Navbar() {
       <Search>
         <SearchBar className="search" placeholder="search food, drinks etc" />
       </Search>
-      <Date>
-        <h4>Thursday, 2022</h4>
-      </Date>
+      {/* <Date>
+        <h4>Thursday, 2022</h4> */}
+      <Side>
+        <SidebarDemo />
+      </Side>
+      {/* </Date> */}
     </NavBar>
   );
 }
@@ -40,17 +44,17 @@ const Search = styled.div`
     box-shadow: none;
     width: 100%;
   }
-  @media (max-width:768px){
+  @media (max-width: 768px) {
     margin-right: 20px;
   }
 `;
 const Logo = styled.div`
-margin-right: 100px;
+  margin-right: 100px;
 
   span {
     color: #2c586e;
   }
-  @media (max-width:768px){
+  @media (max-width: 768px) {
     margin-right: 20px;
   }
 `;
@@ -59,5 +63,16 @@ const Date = styled.div`
   width: 30%;
   display: flex;
   justify-content: flex-end;
+`;
+
+const Side = styled.div`
+  display: none;
+  overflow-y: hidden;
+
+  @media (min-width: 0px) and (max-width: 768px) {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+  }
 `;
 export default Navbar;

@@ -1,11 +1,17 @@
 import { green } from "@material-ui/core/colors";
-import React from "react";
+import { Button } from "primereact/button";
+import React, { useState } from "react";
 import Scrollbars from "react-custom-scrollbars";
 import styled from "styled-components";
 import { useStateValue } from "../../stateProvider";
 import OrderItems from "./OrderItems";
+import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css";
+import { Sidebar } from "primereact/sidebar";
 function Orders() {
   const [{ basket }, dispatch] = useStateValue();
+  const [showTotal, setShowTotal] = useState(false);
   return (
     <Order_data>
       <Order_type>
@@ -29,34 +35,45 @@ function Orders() {
           ))}
         </Scrollbars>
       </Items>
-      <Subtotal>
-        <p>
-          Subtotal <span>Rs 1000</span>
-        </p>
-        <p>
-          Discount 10% <span>Rs. 100</span>
-        </p>
-        <p>
-          Service charge 10<span>Rs. 100</span>
-        </p>
-        <p>
-          Tax 10% (VAT included) <span>Rs. 100</span>
-        </p>
 
-        <p style={{ color: green[500] }} className="total">
-          Grand Total <span>Rs. 1100</span>
-        </p>
-        <Sub_button>
-          <button>Place Order</button>
-        </Sub_button>
-      </Subtotal>
+      <Sub_button>
+        {showTotal ? (
+          <Subtotal>
+            <p>
+              Subtotal <span>Rs 1000</span>
+            </p>
+            <p>
+              Discount 10% <span>Rs. 100</span>
+            </p>
+            <p>
+              Service charge 10%<span>Rs. 100</span>
+            </p>
+            <p>
+              Tax 10% (VAT included) <span>Rs. 100</span>
+            </p>
+          </Subtotal>
+        ) : null}
+
+        <button className="total " onClick={() => setShowTotal(!showTotal)}>
+          <span className="px-3">Grand Total: Rs. 1100</span>
+          <i className="pi pi-angle-up px-2"></i>
+        </button>
+        <button>Place Order</button>
+        {/* <button className="total">View total</button> */}
+      </Sub_button>
     </Order_data>
   );
 }
-const Order_data = styled.div``;
+const Order_data = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 const Order_type = styled.div`
   display: flex;
   width: 100%;
+  height: auto;
   margin-bottom: 10px;
   justify-content: space-between;
   select {
@@ -66,22 +83,24 @@ const Order_type = styled.div`
 `;
 const Items = styled.div`
   width: 100%;
-  height: 260px;
+  height: 80%;
+  max-height: 80%;
+  min-height: 45%;
 `;
 const Subtotal = styled.div`
   width: 100%;
+
   justify-content: space-between;
+  line-height: 2;
+  align-items: center;
+
   p {
     display: flex;
     justify-content: space-between;
-    
+
     span {
       font-weight: bold;
-      padding: 8px;
     }
-  }
-  .total {
-    border-top: 2px dashed black;
   }
 `;
 const Sub_button = styled.div`
@@ -89,10 +108,20 @@ const Sub_button = styled.div`
   button {
     width: 100%;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     color: white;
     background-color: #2c586e;
     cursor: pointer;
   }
+  .total {
+    background-color: rgba(0, 0, 0, 0.06);
+    color: black;
+    display: flex;
+    justify-content: space-between;
+  }
 `;
+
 export default Orders;

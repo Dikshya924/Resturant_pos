@@ -1,0 +1,62 @@
+@media (min-width: 0px) and (max-width: 755px) {
+  .main {
+    grid-template-columns: repeat(2, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 756px) and (max-width: 1007px) {
+  .main {
+    grid-template-columns: repeat(3, 0fr);
+    column-gap: 20px;
+  }
+}
+
+@media (min-width: 1008px) and (max-width: 1259px) {
+  .main {
+    grid-template-columns: repeat(4, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1260px) and (max-width: 1511px) {
+  .main {
+    grid-template-columns: repeat(5, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1512px) and (max-width: 1763px) {
+  .main {
+    grid-template-columns: repeat(6, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1764px) and (max-width: 2015px) {
+  .main {
+    grid-template-columns: repeat(7, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 2016px) and (max-width: 2267px) {
+  .main {
+    grid-template-columns: repeat(8, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 2268px) and (max-width: 2519px) {
+  .main {
+    grid-template-columns: repeat(9, 0fr);
+    column-gap: 20px;
+    justify-content: center;
+  }
+}

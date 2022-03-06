@@ -1,13 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-@media (min-width:1024px) {
-    
-    .App{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+* {
+  margin: 0;
+  padding: 0;
 }

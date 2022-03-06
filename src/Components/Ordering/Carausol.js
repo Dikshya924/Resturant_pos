@@ -34,7 +34,7 @@ function Carausol() {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -43,9 +43,11 @@ function Carausol() {
   return (
     <Category>
       <Slider {...settings}>
-        <Cat style={{ width: 100, left: 10 }}>
+        <Cat>
+          {/* <div className="slide-box d-dlex"> */}
           <FastfoodIcon className="icon" />
           All
+          {/* </div> */}
         </Cat>
         <Cat>
           <FastfoodIcon className="icon" />
@@ -78,7 +80,6 @@ function Carausol() {
 const Category = styled.div`
   width: 90%;
   margin: auto;
-  
   .slick-arrow {
     background-color: #2c586e;
     width: 30px;
@@ -90,8 +91,8 @@ const Category = styled.div`
     background-color: #2c586e;
   }
   .slick-slide {
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   @media (max-width: 768px) {
     width: 90%;
@@ -100,12 +101,21 @@ const Category = styled.div`
 const Cat = styled.div`
   background-color: rgba(0, 0, 0, 0.03);
   padding: 10px;
-  align-items: center;
   border-radius: 20px;
   margin: 10px;
+  margin-bottom: 0px;
+  text-align: center;
+  cursor: pointer;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
   .icon {
     color: #2c586e;
     margin-right: 10px;
+  }
+  &:hover,
+  &:active {
+    border: 1px solid #2c586e;
   }
 `;
 export default Carausol;
