@@ -2,9 +2,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Main from "./Components/Ordering/Main";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Table from "./Components/Table/Table";
-import Toogles from "./Components/Ordering/Toogles";
-
+import TableUI from "./Components/Table/TableUI";
 function App() {
   return (
     <div className="App">
@@ -12,8 +10,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Main} />
-          <Route path="/table" exact component={Table} />
-          <Route path="/Slide" exact component={Toogles} />
+          <Route path="/table" component={TableUI} />
         </Switch>
       </Router>
     </div>

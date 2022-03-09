@@ -9,6 +9,8 @@ import FastfoodIcon from "@material-ui/icons/Fastfood";
 import styled from "styled-components";
 import { Sidebar } from "primereact/sidebar";
 import { Button } from "primereact/button";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 function Carausol() {
   const [visibleLeft, setVisibleLeft] = useState(false);
   var settings = {
@@ -19,6 +21,8 @@ function Carausol() {
     slidesToScroll: 4,
     variableWidth: true,
     initialSlide: 0,
+    nextArrow: <ArrowForwardIosIcon />,
+    prevArrow: <ArrowBackIosIcon />,
     responsive: [
       {
         breakpoint: 1024,
@@ -53,32 +57,53 @@ function Carausol() {
         <Slider {...settings}>
           <Cat>
             {/* <div className="slide-box d-dlex"> */}
-            <FastfoodIcon className="icon" />
+            {/* <FastfoodIcon className="icon" /> */}
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/308/308099.png"
+              width="20px"
+              height="20px"
+            />
             All
             {/* </div> */}
           </Cat>
           <Cat>
-            <FastfoodIcon className="icon" />
+            <img
+              src="../../../icons/hamburger.png"
+              width="20px"
+              height="20px"
+            />
             Burger
           </Cat>
           <Cat>
-            <FastfoodIcon className="icon" />
+            <img src="../../../icons/pizza.png" width="20px" height="20px" />
             Pizza
           </Cat>
           <Cat>
-            <FastfoodIcon className="icon" />
+            <img src="../../../icons/noodles.png" width="20px" height="20px" />
             Noodles
           </Cat>
           <Cat>
-            <FastfoodIcon className="icon" />
+            <img
+              src="../../../icons/hamburger.png"
+              width="20px"
+              height="20px"
+            />
             Burger
           </Cat>
           <Cat>
-            <FastfoodIcon className="icon" />
+            <img
+              src="../../../icons/hamburger.png"
+              width="20px"
+              height="20px"
+            />
+            Burger
+          </Cat>
+          <Cat>
+            <img src="../../../icons/pizza.png" width="20px" height="20px" />
             Pizza
           </Cat>
           <Cat>
-            <FastfoodIcon className="icon" />
+            <img src="../../../icons/noodles.png" width="20px" height="20px" />
             Noodles
           </Cat>
         </Slider>
@@ -121,34 +146,49 @@ function Carausol() {
           icon="pi pi-arrow-right"
           onClick={() => setVisibleLeft(true)}
           className="mr-2"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="view all categories"
         />
       </SideButton>
     </Category>
   );
 }
 const Category = styled.div`
-  width: 90%;
-  margin: auto;
-  /* .slick-arrow {
-    background-color: #2c586e;
-    width: 30px;
-    height: 30px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  margin: 7px auto;
+  background-color: white;
+  align-items: center;
+  .slick-arrow {
+    color: #2c586e;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
+    display: flex;
+    text-align: center;
+    align-items: center;
   }
   .slick-arrow:hover,
   .slick-arrow:active {
-    background-color: #2c586e;
-  } */
+    background-color: #8da1af;
+    color: white;
+  }
   .slick-slide {
     margin-right: 10px;
     margin-left: 10px;
+  }
+  .slick-prev {
+    left: -10px !important;
+    align-items: center;
   }
   @media (max-width: 768px) {
     width: 90%;
   }
 `;
 const Cat = styled.div`
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: #f2f7fb;
   padding: 10px;
   border-radius: 20px;
   margin: 10px;
@@ -156,19 +196,34 @@ const Cat = styled.div`
   text-align: center;
   cursor: pointer;
   display: flex !important;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   .icon {
-    color: #2c586e;
+    color: #ff6565;
     margin-right: 10px;
   }
   &:hover,
   &:active {
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: #2c586e;
+    color: white;
   }
 `;
-const SideButton = styled.div``;
-const Category_List = styled.div``;
+const SideButton = styled.div`
+  .p-button {
+    background: #8da1af;
+    border: 1px solid #8da1af;
+    border-radius: 50%;
+    &:hover {
+      background: #8da1af;
+      border: 1px solid #8da1af;
+    }
+  }
+  .p-sidebar-headar {
+  }
+`;
+const Category_List = styled.div`
+  width: 90%;
+`;
 const All = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -4,11 +4,9 @@ import MenuCard from "./MenuCard";
 import Product from "../Data/product.json";
 import Scrollbars from "react-custom-scrollbars";
 import Orders from "./Orders";
-// import "./Main.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carausol from "./Carausol";
-import SidebarDemo from "./SidebarDemo";
 
 function Main() {
   return (
@@ -38,7 +36,8 @@ function Main() {
 }
 const MainContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  height: 87vh;
   margin: 0;
   padding: 0;
   @media (min-width: 0px) and (max-width: 768px) {
@@ -46,8 +45,8 @@ const MainContainer = styled.div`
   }
 `;
 const RightSide = styled.div`
-  width: 70vw;
-  height: 85vh;
+  width: 70%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   /* background-color: rgb(241, 247, 252); */
@@ -58,7 +57,6 @@ const RightSide = styled.div`
 `;
 const Menu = styled.div`
   display: flex;
-  /* grid-template-columns: repeat(5, 0fr); */
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 40px;
@@ -67,8 +65,8 @@ const Menu = styled.div`
   width: 100%;
 `;
 const Leftside = styled.div`
-  width: 30vw;
-  height: 85vh;
+  width: 30%;
+  height: 100%;
   @media (min-width: 0px) and (max-width: 768px) {
     width: 100%;
     display: none;

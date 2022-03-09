@@ -1,5 +1,4 @@
 import { green } from "@material-ui/core/colors";
-import { Button } from "primereact/button";
 import React, { useState } from "react";
 import Scrollbars from "react-custom-scrollbars";
 import styled from "styled-components";
@@ -8,7 +7,7 @@ import OrderItems from "./OrderItems";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
-import { Fade, Grow, Slide } from "@material-ui/core";
+import { Slide, Fade } from "@material-ui/core";
 function Orders() {
   const [{ basket }, dispatch] = useStateValue();
   const [showTotal, setShowTotal] = useState(false);
@@ -16,7 +15,11 @@ function Orders() {
     <Order_data>
       <Order_type>
         <h4>#orders 1234</h4>
-        <p>Table No: 12</p>
+        <select>
+          <option>Table no: 12</option>
+          <option>Table no: 12</option>
+          <option>Table no: 12</option>
+        </select>
         <select>
           <option>Dine In</option>
           <option>Take away</option>
@@ -37,13 +40,10 @@ function Orders() {
       </Items>
       <Sub_button>
         {showTotal ? (
-          <Slide
+          <Fade
             direction="up"
             in={showTotal}
-            mountOnEnter
-            unmountOnExit
-            style={{ transformOrigin: "10 10 10" }}
-            {...(showTotal ? { timeout: 1000 } : {})}
+            style={{ transitionDelay: showTotal ? "100ms" : "0ms" }}
           >
             <Subtotal>
               <p>
@@ -55,19 +55,21 @@ function Orders() {
               <p>
                 Service charge 10%<span>Rs. 100</span>
               </p>
+
               <p>
                 Tax 10% (VAT included) <span>Rs. 100</span>
               </p>
             </Subtotal>
-          </Slide>
+          </Fade>
         ) : null}
 
         <button className="total " onClick={() => setShowTotal(!showTotal)}>
-          <span className="px-3">Grand Total: Rs. 1100</span>
+          <span className="px-3" style={{ fontSize: 16, fontWeight: 600 }}>
+            Grand Total: <span style={{ color: green[300] }}> Rs. 1100</span>
+          </span>
           <i className="pi pi-angle-up px-2"></i>
         </button>
         <button>Place Order</button>
-        {/* <button className="total">View total</button> */}
       </Sub_button>
     </Order_data>
   );
@@ -81,29 +83,29 @@ const Order_data = styled.div`
 const Order_type = styled.div`
   display: flex;
   width: 100%;
-  height: auto;
+  height: 10%;
   padding: 10px;
   justify-content: space-between;
   select {
     border: 1px solid #2c586e;
     padding: 5px;
+    height: 35px;
   }
 `;
 const Items = styled.div`
   width: 100%;
-  height: 80%;
-  max-height: 80%;
+  height: 70%;
+  max-height: 70%;
   min-height: 45%;
   padding: 15px 15px 0px;
 `;
 const Subtotal = styled.div`
-  width: 100%;
   justify-content: space-between;
-  line-height: 2;
+  width: 95%;
+  line-height: 1.5;
   align-items: center;
   padding: 15px 15px 0px;
-  opacity: 3;
-  transition: width 1s ease-in, height 1s ease-in;
+  /* transition: width 1s ease-in, height 1s ease-in; */
   p {
     display: flex;
     justify-content: space-between;
@@ -114,7 +116,6 @@ const Subtotal = styled.div`
   }
 `;
 const Sub_button = styled.div`
-  width: 100%;
   button {
     width: 100%;
     padding: 20px;
@@ -127,11 +128,10 @@ const Sub_button = styled.div`
     cursor: pointer;
   }
   .total {
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: rgba(0, 0, 0, 0.03);
     color: black;
     display: flex;
     justify-content: space-between;
   }
 `;
-
 export default Orders;
