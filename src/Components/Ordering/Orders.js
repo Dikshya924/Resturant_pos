@@ -69,7 +69,10 @@ function Orders() {
           </span>
           <i className="pi pi-angle-up px-2"></i>
         </button>
-        <button>Place Order</button>
+        <Split>
+          <button>Place Order</button>
+          <button className="pay">Payment</button>
+        </Split>
       </Sub_button>
     </Order_data>
   );
@@ -132,6 +135,22 @@ const Sub_button = styled.div`
     color: black;
     display: flex;
     justify-content: space-between;
+  }
+`;
+const Split = styled.div`
+  display: flex;
+  button {
+    width: 50%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  .pay {
+    background-color: white;
+    color: #2c586e;
+    border: 1px solid #2c586e;
   }
 `;
 export default Orders;
